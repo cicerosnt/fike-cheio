@@ -98,6 +98,7 @@ const RestaurantCategories = ({ restaurant }: RestaurantCategoriesProps) => {
                 </span>
               </p>
             </div>
+            
             <Button
               variant="default"
               onClick={toggleCart}

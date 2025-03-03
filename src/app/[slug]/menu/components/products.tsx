@@ -23,16 +23,6 @@ const Products = ({ products }: ProductsProps) => {
           className="flex items-center justify-between gap-10 border-b py-3"
         >
           {/* ESQUERDA */}
-          <div>
-            <h3 className="text-sm font-medium">{product.name}</h3>
-            <p className="line-clamp-2 text-sm text-muted-foreground">
-              {product.description}
-            </p>
-            <p className="pt-3 text-sm font-semibold">
-              {formatCurrency(product.price)}
-            </p>
-          </div>
-
           {/* DIREITA */}
           <div className="relative min-h-[82px] min-w-[120px]">
             <Image
@@ -41,6 +31,16 @@ const Products = ({ products }: ProductsProps) => {
               fill
               className="rounded-lg object-contain"
             />
+          </div>
+
+          <div>
+            <h3 className="text-sm font-medium">{product.name}</h3>
+            <p className="line-clamp-2 text-sm text-muted-foreground">
+              {product.description}
+            </p>
+            <p className="pt-3 text-sm font-semibold">
+              {formatCurrency(product.price)}
+            </p>
           </div>
         </Link>
       ))}
