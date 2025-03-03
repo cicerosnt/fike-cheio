@@ -13,8 +13,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Fike-Cheio | Restaurante Caseiro",
+  title: "Fike Cheio | Restaurante Caseiro",
   description: "Encha a pança com mió comida e o mió preço!",
+  icons: "/favicon.png"
 };
 
 export default function RootLayout({

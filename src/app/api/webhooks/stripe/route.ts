@@ -13,23 +13,29 @@ export async function POST(request: Request) {
   });
 
   const signature = request.headers.get("stripe-signature");
+
   if (!signature) {
     return NextResponse.error();
   }
+
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET_KEY;
+
   if (!webhookSecret) {
     throw new Error("Missing Stripe webhook secret key");
   }
+
   const text = await request.text();
   const event = stripe.webhooks.constructEvent(text, signature, webhookSecret);
 
   if (event.type === "checkout.session.completed") {
     const orderId = event.data.object.metadata?.orderId;
+
     if (!orderId) {
       return NextResponse.json({
         received: true,
       });
     }
+
     const order = await db.order.update({
       where: {
         id: Number(orderId),
@@ -45,14 +51,18 @@ export async function POST(request: Request) {
         },
       },
     });
+
     revalidatePath(`/${order.restaurant.slug}/orders`);
+
   } else if (event.type === "charge.failed") {
     const orderId = event.data.object.metadata?.orderId;
+    
     if (!orderId) {
       return NextResponse.json({
         received: true,
       });
     }
+
     const order = await db.order.update({
       where: {
         id: Number(orderId),
@@ -68,6 +78,7 @@ export async function POST(request: Request) {
         },
       },
     });
+
     revalidatePath(`/${order.restaurant.slug}/orders`);
   }
 

@@ -1,7 +1,13 @@
 "use client";
 
 import { Prisma } from "@prisma/client";
-import { ChefHatIcon, ChevronLeftIcon, ChevronRightIcon, ShoppingBag } from "lucide-react";
+import {
+  ChefHatIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  Info,
+  ShoppingBag,
+} from "lucide-react";
 import Image from "next/image";
 import { useContext, useState } from "react";
 
@@ -36,7 +42,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
       return prev - 1;
     });
   };
-  
+
   const handleIncreaseQuantity = () => {
     setQuantity((prev) => prev + 1);
   };
@@ -51,7 +57,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   return (
     <>
-      <div className="relative z-50 mt-[-1.5rem] flex flex-auto flex-col overflow-hidden rounded-t-3xl p-5 bg-zinc-50">
+      <div className="relative z-50 mt-[-1.5rem] flex flex-auto flex-col overflow-hidden rounded-t-3xl bg-zinc-50 p-5">
         <div className="flex-auto overflow-hidden">
           {/* RESTAURANTE */}
           <div className="flex items-center gap-1.5">
@@ -94,18 +100,20 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             </div>
           </div>
 
-          <ScrollArea className="h-full ">
+          <ScrollArea className="h-full">
             {/* SOBRE */}
             <div className="mt-6 space-y-3">
-              <h4 className="font-semibold">Sobre</h4>
+              <h4 className="font-semibold flex gap-2 items-center">
+                <Info size={18} /> Sobre
+              </h4>
               <p className="text-sm text-muted-foreground">
                 {product.description}
               </p>
             </div>
 
             {/* INGREDIENTS */}
-            <div className="mt-6 space-y-3 pb-[130px] ">
-              <div className="5 flex items-center gap-1">
+            <div className="mt-6 space-y-3 pb-[130px]">
+              <div className="5 flex items-center gap-2">
                 <ChefHatIcon size={18} />
                 <h4 className="font-semibold">Ingredientes</h4>
               </div>
@@ -118,7 +126,10 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           </ScrollArea>
         </div>
 
-        <Button className="w-full rounded-full font-semibold" onClick={handleAddToCart}>
+        <Button
+          className="w-full rounded-full font-semibold "
+          onClick={handleAddToCart}
+        >
           Adicionar à sacola
           <ShoppingBag />
         </Button>
