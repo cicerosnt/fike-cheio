@@ -2,7 +2,6 @@
 
 import { Restaurant } from "@prisma/client";
 import { ChevronLeftIcon, ScrollTextIcon } from "lucide-react";
-import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
@@ -28,21 +27,18 @@ const RestaurantHeader = ({ restaurant }: RestaurantHeaderProps) => {
         <ChevronLeftIcon />
       </Button>
       <picture>
-        {/* Imagem para telas menores */}
         <source
           media="(max-width: 768px)"
           srcSet="https://gl2f90e9s5.ufs.sh/f/BWjjPa2nYyjXaFOIPiDD1Om7Y0JQZ3j4NFA68cthpsRxkuHz"
         />
-        {/* Imagem para telas maiores */}
         <source
           media="(min-width: 769px)"
           srcSet="https://gl2f90e9s5.ufs.sh/f/BWjjPa2nYyjX8ELlbkbGkgeK7LBbXtyURoDY94Em3pPAfNjs"
         />
-        {/* Fallback para navegadores que não suportam <picture> */}
         <img
           src="https://gl2f90e9s5.ufs.sh/f/BWjjPa2nYyjX8ELlbkbGkgeK7LBbXtyURoDY94Em3pPAfNjs"
           alt={restaurant.name}
-          className="w-full h-full object-cover object-center"
+          className="h-full w-full object-cover object-center"
         />
       </picture>
       <Button
