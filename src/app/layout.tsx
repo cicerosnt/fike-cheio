@@ -15,7 +15,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Fike Cheio | Restaurante Caseiro",
   description: "Encha a pança com mió comida e o mió preço!",
-  icons: "/favicon.png"
+  icons: "/favicon.png",
 };
 
 export default function RootLayout({
@@ -26,9 +26,11 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={`${poppins.className} antialiased`}>
-        <CartProvider>{children}</CartProvider>
+        <main className="mx-auto max-w-6xl px-4 sm:px-0">
+          <CartProvider>{children}</CartProvider>
 
-        <Toaster/>
+          <Toaster />
+        </main>
       </body>
     </html>
   );
