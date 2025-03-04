@@ -34,9 +34,7 @@ const HomePage = () => {
       <section className="py-24">
         <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
           <div>
-            <h2 className="mb-4 text-3xl font-bold text-zinc-700">
-              Sobre Nós
-            </h2>
+            <h2 className="mb-4 text-3xl font-bold text-zinc-700">Sobre Nós</h2>
             <p className="leading-relaxed text-gray-700">
               O Restaurante Regional nasceu do amor pela culinária brasileira.
               Localizado no coração da cidade, somos especializados em pratos
@@ -74,16 +72,16 @@ const HomePage = () => {
           <ConsumptionMethodOptionButton
             slug="fike-cheio"
             option="DINE_IN"
-            buttonText="Consumo local"
-            imageAlt="Comer aqui"
+            buttonText="Retirar"
+            imageAlt="Retirar"
             imageUrl="/dine_in.png"
             buttonType="outline"
           />
           <ConsumptionMethodOptionButton
             slug="fike-cheio"
             option="TAKEAWAY"
-            buttonText="Para levar"
-            imageAlt="Para levar"
+            buttonText="Entregar"
+            imageAlt="Entregar"
             imageUrl="/takeaway.png"
             buttonType="default"
           />
@@ -103,11 +101,12 @@ const HomePage = () => {
       </section>
 
       {/* Rodapé */}
-      <footer className=" rounded-t-lg bg-[#AC4425] py-12 text-white">
+      <footer className="rounded-t-lg bg-[#AC4425] py-12 text-white">
         <div className="text-center">
           <h2 className="mb-6 text-3xl font-bold">Pronto para saborear?</h2>
           <p className="text-lg">
-            Menino, menina. Pense numa <i>cumida</i> boa, viu! Bora peça logo a sua:
+            Menino, menina. Pense numa <i>cumida</i> boa, viu! Bora peça logo a
+            sua:
           </p>
           <div className="flex flex-col items-center justify-center gap-4 py-10 md:flex-row">
             <ConsumptionMethodOptionButton
