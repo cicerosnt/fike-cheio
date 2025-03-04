@@ -112,16 +112,16 @@ const HomePage = () => {
             <ConsumptionMethodOptionButton
               slug="fike-cheio"
               option="DINE_IN"
-              buttonText="Consumo local"
-              imageAlt="Comer aqui"
+              buttonText="Retirar"
+              imageAlt="Retirar"
               imageUrl="/dine_in.png"
               buttonType="outline"
             />
             <ConsumptionMethodOptionButton
               slug="fike-cheio"
               option="TAKEAWAY"
-              buttonText="Para levar"
-              imageAlt="Para levar"
+              buttonText="Entregar"
+              imageAlt="Entregar"
               imageUrl="/takeaway.png"
               buttonType="default"
             />
